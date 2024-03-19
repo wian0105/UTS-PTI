@@ -33,7 +33,7 @@ function saveData() {
     xhr.send(JSON.stringify(data));
 }
 
-document.getElementById('dataForm').addEventListener('submit', function () {
+document.getElementById('dataForm').addEventListener('submit', function (event) {
     event.preventDefault();
     var nim = document.getElementById('nim').value;
     var nama = document.getElementById('nama').value;
