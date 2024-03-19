@@ -125,24 +125,37 @@
     <!-- /modal alert -->
     </div>
 
-     <!-- Kode jam real-time -->
-        <script>
-            function updateClock() {
-                moment.tz.setDefault("Asia/Jakarta");
-                
-                const now = moment();
-                
-                const hours = now.format('HH');
-                const minutes = now.format('mm');
-                const seconds = now.format('ss');
+<!-- Kode jam real-time -->
+<script>
+    function updateClock() {
+        moment.tz.setDefault("Asia/Jakarta");
+        const now = moment();
+        const hours = now.format('HH');
+        const minutes = now.format('mm');
+        const seconds = now.format('ss');
+
+        document.getElementById('hours').innerText = hours;
+        document.getElementById('minutes').innerText = minutes;
+        document.getElementById('seconds').innerText = seconds;
+    }
     
-                document.getElementById('hours').innerText = hours;
-                document.getElementById('minutes').innerText = minutes;
-                document.getElementById('seconds').innerText = seconds;
-            }
-            setInterval(updateClock, 1000);
-            updateClock();
-        </script>
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        document.getElementById('hours').innerText = hours;
+        document.getElementById('minutes').innerText = minutes;
+        document.getElementById('seconds').innerText = seconds;
+    }
+
+    function updateClocks() {
+        updateClock(); 
+        setInterval(updateClock, 1000); 
+    }
+    updateClocks();
+</script>
 
     <!-- CDN JS -->
 
