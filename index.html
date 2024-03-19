@@ -28,20 +28,15 @@
         </div>
         <!-- /Head -->
     <br/>
-		<div class="container-fluid">
-			<h3>Welcome! | </h3>
-			<p> <span id="hours"></span>
-                3:
-                <span id="minutes"></span>
-                56:
-                <span id="seconds"></span>
-                30</p>
-		</div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                updateClock();
-            });
-        </script>
+    <div class="container-fluid">
+        <h3>Welcome! | </h3>
+        <p> <span id="hours"></span>
+            :
+            <span id="minutes"></span>
+            :
+            <span id="seconds"></span>
+           </p>
+    </div>
         
 <br/>
         <!-- Table -->
@@ -138,7 +133,7 @@
         document.getElementById('minutes').innerText = minutes;
         document.getElementById('seconds').innerText = seconds;
     }
-    
+
     function updateClock() {
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
