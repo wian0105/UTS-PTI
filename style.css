@@ -8,3 +8,13 @@
     height: 90px;
 }
 
+#clock {
+    font-size: 6em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20%;
+  }
+  
+  #clock span {
+    padding: 0 5px;
+  }
