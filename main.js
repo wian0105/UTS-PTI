@@ -66,10 +66,10 @@ function updateClock() {
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    document.getElementById('3').innerText = hours;
-    document.getElementById('56').innerText = minutes;
-    document.getElementById('30').innerText = seconds;
-  }
-  
-  setInterval(updateClock, 1000);
-  updateClock();
+    
+    document.getElementById('hours').innerText = hours;
+    document.getElementById('minutes').innerText = minutes;
+    document.getElementById('seconds').innerText = seconds;
+}
+setInterval(updateClock, 1000); 
+updateClock(); 

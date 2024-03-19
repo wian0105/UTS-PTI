@@ -31,6 +31,12 @@
                 <span id="seconds"></span>
                 30</p>
 		</div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                updateClock();
+            });
+        </script>
+        
 <br/>
         <!-- Table -->
         <div class="card-body">
@@ -105,6 +111,25 @@
         });
       });
     </script>
+
+     <!-- Kode jam real-time -->
+        <script>
+            function updateClock() {
+                moment.tz.setDefault("Asia/Jakarta");
+                
+                const now = moment();
+                
+                const hours = now.format('HH');
+                const minutes = now.format('mm');
+                const seconds = now.format('ss');
+    
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+        </script>
 
     <!-- CDN JS -->
 
