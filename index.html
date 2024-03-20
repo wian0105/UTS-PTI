@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
 
@@ -99,7 +100,7 @@
 
     <!-- modal alert -->
         <!-- modal edit -->
-        <div class="modal fade" id="modal-info">
+        <div class="modal fade" id="editModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -109,7 +110,34 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>One fine body&hellip;</p>
+                        <form class="form-horizontal" id="modal-dataForm">
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="nim" placeholder="NIM">
+                                        </div>
+                                </div>
+                                <div class="form-group row pt-3">
+                                    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap">
+                                        </div>
+                                </div>
+                                <div class="form-group row pt-3">
+                                    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="alamat" placeholder="Alamat">
+                                        </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer text-end">
+                                <button type="button" class="btn btn-default bg-gradient-warning">Reset</button>
+                                <button type="submit" class="btn btn-default bg-gradient-success">Tambah</button>
+                            </div>
+                            
+                        </form>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

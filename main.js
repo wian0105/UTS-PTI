@@ -16,6 +16,43 @@ function displayData() {
         namaCell.innerText = item.nama;
         var alamatCell = row.insertCell();
         alamatCell.innerText = item.alamat;
+
+        // edit data
+        var actionCell = row.insertCell();
+        var editButton = document.createElement('button');
+        editButton.classList.add('btn', 'bg-gradient-info', 'btn-default');
+        editButton.innerText = 'Edit';
+        editButton.addEventListener('click', function() {
+            openModal();
+        });
+        var actionCell = row.insertCell();
+        actionCell.appendChild(editButton);
+
+
+        var deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn', 'btn-default', 'bg-gradient-danger');
+        deleteButton.innerText = 'Delete';
+        deleteButton.addEventListener('click', function() {
+            hapusData(row);
+        });
+        actionCell.appendChild(deleteButton);
+    }
+}
+
+function hapusData(row) {
+    var rowIndex = row.rowIndex;
+    data.splice(rowIndex - 1, 1); // Menghapus data dari array
+    displayData(); // Memperbarui tampilan tabel
+}
+
+function openModal() {
+    var modal = document.getElementById('editModal');
+    modal.style.display = "block";
+
+    // Menutup modal saat tombol 'close' diklik
+    var closeBtn = modal.querySelector(".close");
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
     }
 }
 
@@ -66,10 +103,10 @@ function updateClock() {
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    
-    document.getElementById('hours').innerText = hours;
-    document.getElementById('minutes').innerText = minutes;
-    document.getElementById('seconds').innerText = seconds;
-}
-setInterval(updateClock, 1000); 
-updateClock(); 
+    document.getElementById('3').innerText = hours;
+    document.getElementById('56').innerText = minutes;
+    document.getElementById('30').innerText = seconds;
+  }
+  
+  setInterval(updateClock, 1000);
+  updateClock();
