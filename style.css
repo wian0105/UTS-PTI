@@ -1,20 +1,48 @@
 .container-box {
-    width: 100%;
+  width: 100%;
 }
 
-#header {
-    background-color: black;
-    opacity: 80%;
-    height: 90px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.baris-1 {
+  background-color: black;
+  height: 140px; 
+  width: 100%;
+  padding-top: 20px; 
 }
 
-#clock {
-    font-size: 6em;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20%;
-  }
-  
-  #clock span {
-    padding: 0 5px;
-  }
+.container.pt-4 {
+  background-color: black;
+}
+
+#header h2, 
+#header p {
+  margin: 0;
+  background-color: black;
+  opacity: 80%;
+  height: 90px;
+}
+#hours, #minutes, #seconds {
+  color: white;
+  font-size: xx-large;
+  font-weight: bold;
+  background: -webkit-linear-gradient(right, red, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+#container-fluid {
+  font-size: 8em; 
+  font-weight: bold;
+  text-align: right; 
+  margin-top: 20%;
+  font-family: 'Arial', sans-serif; 
+}
+
+#container-fluid span {
+  padding: 0 10px; 
+}
