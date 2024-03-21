@@ -64,6 +64,6 @@ h3 {
 @import url('https://fonts.googleapis.com/css2?family=Stoic+Script&display=swap');
 
 .container-fluid2 p {
-  font-family: 'Stoic Script', cursive; /* Gunakan font Stoic Script */
-  font-weight: bold; /* Teks tebal */
+  font-family: 'Stoic Script', cursive; 
+  font-weight: bold; 
 }
