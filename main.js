@@ -8,7 +8,8 @@ function addData(dataBaru) {
 function displayData() {
     var tableBody = document.getElementById('dataBody');
     tableBody.innerHTML = '';
-    for (var item of data) {
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
         var row = tableBody.insertRow();
         var nimCell = row.insertCell();
         nimCell.innerText = item.nim;
@@ -21,14 +22,17 @@ function displayData() {
         var actionCell = row.insertCell();
         var editButton = document.createElement('button');
         editButton.classList.add('btn', 'bg-gradient-info', 'btn-default');
+        editButton.setAttribute('data-toggle', 'modal');
+        editButton.setAttribute('data-target', '#editModal');
         editButton.innerText = 'Edit';
-        editButton.addEventListener('click', function() {
-            openModal();
+        editButton.dataset.index = i; // Menyimpan indeks data dalam atribut dataset
+        editButton.addEventListener('click', function(event) {
+            var index = event.target.dataset.index;
+            isiFormulirEdit(data[index]); // Mengisi formulir modal dengan data yang dipilih
         });
-        var actionCell = row.insertCell();
         actionCell.appendChild(editButton);
 
-
+        // hapus data
         var deleteButton = document.createElement('button');
         deleteButton.classList.add('btn', 'btn-default', 'bg-gradient-danger');
         deleteButton.innerText = 'Delete';
@@ -39,21 +43,31 @@ function displayData() {
     }
 }
 
+function isiFormulirEdit(item) {
+    document.getElementById('edit-nim').value = item.nim;
+    document.getElementById('edit-nama').value = item.nama;
+    document.getElementById('edit-alamat').value = item.alamat;
+}
+
+document.getElementById('modal-dataForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Ambil nilai yang diedit dari formulir modal
+    var nim = document.getElementById('edit-nim').value;
+    var nama = document.getElementById('edit-nama').value;
+    var alamat = document.getElementById('edit-alamat').value;
+    // Perbarui data yang dipilih dengan nilai yang diedit
+    var index = document.getElementById('edit-index').value;
+    data[index] = {nim: nim, nama: nama, alamat: alamat};
+    // Simpan data yang diperbarui
+    saveData();
+    // Perbarui tampilan tabel
+    displayData();
+});
+
 function hapusData(row) {
     var rowIndex = row.rowIndex;
     data.splice(rowIndex - 1, 1); // Menghapus data dari array
     displayData(); // Memperbarui tampilan tabel
-}
-
-function openModal() {
-    var modal = document.getElementById('editModal');
-    modal.style.display = "block";
-
-    // Menutup modal saat tombol 'close' diklik
-    var closeBtn = modal.querySelector(".close");
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
 }
 
 function saveData() {
