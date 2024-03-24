@@ -1,5 +1,6 @@
 var data = [];
 
+
 function addData(dataBaru) {
     data.push(dataBaru);
     saveData();
@@ -50,7 +51,7 @@ function isiFormulirEdit(item) {
     document.getElementById('edit-alamat').value = item.alamat;
 }
 
-document.getElementById('editModal').addEventListener('submit', function(event) {
+document.querySelector('#modal-dataForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     var nim = document.getElementById('edit-nim').value;
     var nama = document.getElementById('edit-nama').value;
@@ -59,10 +60,16 @@ document.getElementById('editModal').addEventListener('submit', function(event) 
     var index = document.getElementById('edit-index').value;
     data[index] = {nim: nim, nama: nama, alamat: alamat};
     
-    saveData();
+    await saveData();
     
     displayData();
-    $('#editModal').modal('hide');
+    document.getElementById('editModal').classList.remove('show');
+    document.getElementById('editModal').style.display = 'none';
+    document.body.classList.remove('modal-open');
+    var backdrops = document.getElementsByClassName('modal-backdrop');
+    for (var i = 0; i < backdrops.length; i++) {
+        backdrops[i].parentNode.removeChild(backdrops[i]);
+    }
     isiFormulirEdit(data[index]);
 });
 
