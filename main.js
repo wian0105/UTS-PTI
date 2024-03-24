@@ -71,6 +71,13 @@ document.querySelector('#modal-dataForm').addEventListener('submit', async funct
         backdrops[i].parentNode.removeChild(backdrops[i]);
     }
     isiFormulirEdit(data[index]);
+    Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Data berhasil diubah",
+        showConfirmButton: false,
+        timer: 1500
+      });
 });
 
 function hapusData(row) {
@@ -128,6 +135,13 @@ document.getElementById('dataForm').addEventListener('submit', function (event) 
     document.getElementById('nim').value = '';
     document.getElementById('nama').value = '';
     document.getElementById('alamat').value = '';
+    Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Data Berhasil di Tambahkan",
+        showConfirmButton: false,
+        timer: 1500
+      });
 });
 
 var xhr = new XMLHttpRequest();
